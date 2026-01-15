@@ -3,6 +3,7 @@ import logging
 import os
 
 from aiogram import Bot, Dispatcher
+from dotenv import load_dotenv
 
 from bot.handlers.core import router
 from bot.session import SessionManager
@@ -10,6 +11,7 @@ from bot.session import SessionManager
 
 async def main() -> None:
     logging.basicConfig(level=logging.INFO)
+    load_dotenv()
     token = os.getenv("BOT_TOKEN")
     if not token:
         raise RuntimeError("BOT_TOKEN environment variable is required")
